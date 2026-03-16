@@ -3,60 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua Empresa - Controle de Acesso e Manutenção Preventivas e Corrtivas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Bellart - Controle de Acesso e Manutenção Preventiva e Corretiva</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-	
-        /* Estilos Básicos */
+        /* Variáveis de Cores Atualizadas (Laranja Vibrante Bellart) */
+        :root {
+            --primary-color: #F26A21; 
+            --primary-hover: #D95A19;
+            --dark-bg: #1C1C1C;
+            --light-bg: #f9f9f9;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth; 
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            color: #333;
+            color: var(--text-dark);
             line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        *, *::before, *::after {
+            box-sizing: inherit;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
-		
 
-        /* Cabeçalho */
+        /* CABEÇALHO TOTALMENTE TRANSPARENTE E ABSOLUTO */
         header {
-            
-			background-color: #1C1C1C; /* cinza escuro */
-			min-height: 50px;
-			text-align: center;
-            color: #1C1C1C;
-            padding: 1rem 0;
-            position: sticky;
+            background-color: transparent; /* Sem cor de fundo */
+            padding: 15px 0;
+            position: absolute; /* O cabeçalho agora flutua sobre a Hero */
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-			
         }
 
         header .container {
-		min-height: 50px;
-			text-align: center;
             display: flex;
             justify-content: space-between;
             align-items: center;
-			
         }
-         .logo img {
-          height: 150px;
-          width: auto;
-        }
-        header .logo {
-		min-height: 50px;
-			text-align: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #fff	;
+
+        /* Estilos do Logo */
+        .logo-link {
+            display: flex;
+            align-items: center;
             text-decoration: none;
+        }
+
+        /* LOGO BEM MAIOR - DOBRO DO ORIGINAL */
+        .logo-img {
+            height: 175px; /* Aumentado para acomodar a nova logo grande */
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
         }
 
         nav ul {
@@ -64,181 +85,305 @@
             margin: 0;
             padding: 0;
             display: flex;
+            align-items: center;
         }
 
         nav ul li {
-            margin-left: 50px;
+            margin-left: 30px;
         }
 
         nav ul li a {
-            color: #fff;
+            color: var(--white);
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 700;
+            font-size: 1.1rem;
             transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            /* Adicionado um leve sombreamento branco para garantir legibilidade sobre qualquer imagem */
+            text-shadow: 1px 1px 3px rgba(255,255,255,0.4); 
         }
 
         nav ul li a:hover {
-            color: #ce5e08; /* Laranja */
+            color: var(--primary-color);
         }
-            @media (max-width: 768px) {
-            .logo img {
-            height: 150px;
-        }
-        }
+
         /* Seção Herói (Principal) */
         #hero {
-            background: linear-gradient(rgba(191, 70, 27, 1), rgba(63, 54, 50, 1)), url('https://via.pl#000000aceholder.com/1500x600/004D99/FFFFFF?text=Imagem+de+Controle+de+Acesso') no-repeat center center/cover; /* Substitua pela sua imagem */
-            color: #fff;
+            background: linear-gradient(rgba(28, 28, 28, 0.85), rgba(28, 28, 28, 0.85)), url('img/fundo.png') no-repeat center center/cover;
+            color: var(--white);
             text-align: center;
-            padding: 100px 20px;
+            /* Mantido o espaçamento no topo para o texto não ficar embaixo do menu gigante */
+            padding: 220px 20px 100px 20px; 
         }
 
         #hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            font-weight: 700;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        #hero h1 span {
+            color: var(--primary-color);
         }
 
         #hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
         }
 
         .btn {
-            background-color: #1C1C1C; /* Cinza Escuro */
-            color: #fff;
-            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 35px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-weight: 700;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
             display: inline-block;
             margin: 10px;
+            border: 2px solid var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
-            background-color: #ce5e08
-			;
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--dark-bg);
+            border-color: var(--white);
         }
 
         /* Seções de Conteúdo */
         section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         section:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: var(--light-bg);
         }
 
-        section h2 {
+        .section-header {
             text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
             font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #ce5e08;
+            color: var(--dark-bg);
+            margin-bottom: 15px;
+            font-weight: 900;
         }
 
-        .services-grid, .applications-grid, .brands-grid {
+        .section-header h2 span {
+            color: var(--primary-color);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Grids Gerais */
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+        }
+
+        .card-item {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
+            border-bottom: 4px solid transparent;
         }
 
-        .service-item, .application-item, .brand-item {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(191, 70, 27, 1);
-            transition: transform 0.3s ease;
+        .card-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid var(--primary-color);
         }
 
-        .service-item:hover, .application-item:hover, .brand-item:hover {
-            transform: translateY(-5px);
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
         }
 
-        .service-item h3, .application-item h3 {
-            font-size: 1.5rem;
-            color: #ce5e08;
+        .card-item h3 {
+            font-size: 1.4rem;
+            color: var(--dark-bg);
             margin-bottom: 15px;
         }
 
-        .service-item p, .application-item p, .brand-item p {
+        .card-item p {
+            color: var(--text-light);
             font-size: 1rem;
-            color: #555;
         }
 
-        /* Seção de Clientes (Logos) */
-        #clientes {
-            text-align: center;
-            padding: 60px 0;
-            background-color: #d3d3d3; /* Azul claro */
+        /* Imagens nos Cards */
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
 
-        .logos-clientes {
+        /* Sobre Nós */
+        .sobre-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .sobre-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .sobre-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* Logos Clientes/Marcas */
+        .logos-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
+            align-items: center;
+            gap: 40px;
         }
 
-        .logo-cliente {
+        .logos-grid img {
             max-width: 150px;
             height: auto;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
+            opacity: 0.6;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            filter: grayscale(100%);
         }
 
-        .logo-cliente:hover {
+        .logos-grid img:hover {
             opacity: 1;
+            transform: scale(1.05);
+            filter: grayscale(0%);
         }
 
         /* Formulário de Contato */
-        #contato .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
         }
 
-        .contact-form label {
+        .contact-info {
+            background-color: var(--dark-bg);
+            color: var(--white);
+            padding: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .contact-form {
+            padding: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 700;
-            color: #ce5e08;
+            color: var(--dark-bg);
         }
 
-        .contact-form input,
-        .contact-form textarea {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
+            padding: 15px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 5px;
             font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
         }
 
-        .contact-form textarea {
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 150px;
         }
 
-        .contact-form button {
-            background-color: #ce5e08;
-            color: #fff;
-            padding: 15px 25px;
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 30px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1.1rem;
             font-weight: 700;
+            width: 100%;
             transition: background-color 0.3s ease;
+            text-transform: uppercase;
         }
 
-        .contact-form button:hover {
-            background-color: #003366;
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
         }
 
         /* Botão WhatsApp Fixo */
@@ -246,40 +391,62 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #ce5e08; /* Verde WhatsApp */
+            background-color: #25D366;
             color: white;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             z-index: 1001;
-            transition: background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .whatsapp-float:hover {
             background-color: #1DA851;
+            transform: scale(1.1);
         }
 
         /* Rodapé */
         footer {
-            background-color: #222;
-            color: #fff;
+            background-color: #111;
+            color: var(--text-light);
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0;
             font-size: 0.9rem;
         }
 
+        .footer-logo {
+            max-height: 60px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
         footer p {
-            margin: 0;
+            margin: 5px 0;
+        }
+
+        footer span {
+            color: var(--primary-color);
+            font-weight: bold;
         }
 
         /* Responsividade */
+        @media (max-width: 992px) {
+            .contact-wrapper, .sobre-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
+            header {
+                padding: 10px 0;
+            }
+
             header .container {
                 flex-direction: column;
             }
@@ -291,29 +458,29 @@
             }
 
             nav ul li {
-                margin: 0 10px 10px 10px;
+                margin: 5px 15px;
+            }
+
+            .logo-img {
+                height: 80px; /* Reduzido um pouco no celular para não cobrir a tela inteira */
+            }
+
+            #hero {
+                padding: 200px 20px 80px 20px;
             }
 
             #hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
-            #hero p {
-                font-size: 1rem;
-            }
-
-            section h2 {
+            .section-header h2 {
                 font-size: 2rem;
             }
 
-            .services-grid, .applications-grid, .brands-grid {
-                grid-template-columns: 1fr;
-            }
-
             .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                font-size: 1.8rem;
+                width: 55px;
+                height: 55px;
+                font-size: 2rem;
                 bottom: 20px;
                 right: 20px;
             }
@@ -321,80 +488,84 @@
     </style>
 </head>
 <body>
-   <header>
-    <div class="container">
-        <a href="#" class="logo">
-            <img src="img/logo.png" height="50" alt="Logo">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#hero">Início</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#sobre">Sobre Nós</a></li>
-                <li><a href="#clientes">Clientes</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo-link">
+                <img src="img/logo.png" alt="Logo Bellart" class="logo-img">
+            </a>
+            
+            <nav>
+                <ul>
+                    
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#marcas">Marcas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <section id="hero">
             <div class="container">
-                <h1>Sua Segurança Começa Aqui na Bellart: Soluções Completas em Controle de Acesso</h1>
-                <p>Priorizamos segurança, controle e organização para pequenas empresas e prédios comerciais. Com confiabilidade e agilidade, garantimos a especialização que seu patrimônio e fluxo de pessoas precisam. Conte com a prevenção para evitar problemas e a tranquilidade que só uma equipe especializada pode oferecer.</p>
-                <a href="#contato" class="btn">Agende uma Visita Técnica</a>
-                <a href="#servicos" class="btn">Conheça Nossos Serviços</a>
+                <h1>Sua Segurança Começa Aqui na <span>Bellart</span></h1>
+                <p>Soluções completas em Controle de Acesso e Manutenção. Priorizamos segurança, controle e organização para sua empresa, condomínio ou prédio comercial com máxima confiabilidade e agilidade.</p>
+                <a href="#contato" class="btn">Agendar Visita Técnica</a>
+                <a href="#servicos" class="btn btn-outline">Conheça os Serviços</a>
             </div>
         </section>
 
         <section id="servicos">
             <div class="container">
-                <h2>Nossos Serviços</h2>
-                <div class="services-grid">
-                    <div class="service-item">
-                        <h3>Instalação e Implantação de Sistemas de Controle de Acesso</h3>
-                        <p>Desenvolvemos e implementamos soluções personalizadas de controle de acesso, desde a consultoria inicial até a configuração e treinamento. Garanta a segurança e o controle do fluxo em seu ambiente.</p>
+                <div class="section-header">
+                    <h2>Nossos <span>Serviços</span></h2>
+                    <p>Excelência e rapidez para garantir que seu patrimônio esteja sempre protegido.</p>
+                </div>
+
+                <div class="grid-container">
+                    <div class="card-item">
+                        <i class="fa-solid fa-server card-icon"></i>
+                        <h3>Instalação e Implantação</h3>
+                        <p>Desenvolvemos soluções personalizadas de controle de acesso, desde a consultoria inicial até a configuração e treinamento da sua equipe.</p>
                     </div>
-                    <div class="service-item">
+                    <div class="card-item">
+                        <i class="fa-solid fa-shield-halved card-icon"></i>
                         <h3>Manutenção Preventiva</h3>
-                        <p>Invista na prevenção! Nossos planos de manutenção preventiva garantem o funcionamento contínuo de seus equipamentos, evitando paradas inesperadas e prolongando a vida útil do equipamento.</p>
+                        <p>Invista na prevenção! Nossos planos garantem o funcionamento contínuo dos equipamentos, evitando paradas inesperadas e prolongando a vida útil.</p>
                     </div>
-                    <div class="service-item">
+                    <div class="card-item">
+                        <i class="fa-solid fa-screwdriver-wrench card-icon"></i>
                         <h3>Manutenção Corretiva</h3>
-                        <p>Problemas inesperados? Nossa equipe de especializada lhe oferece reparos ágeis e eficientes. Identificamos e corrigimos falhas, trocamos peças e colocamos sua catraca de volta ao funcionamento rapidamente.</p>
+                        <p>Problemas inesperados? Nossa equipe especializada oferece reparos ágeis, troca de peças e coloca seu sistema de volta ao funcionamento rapidamente.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <h2 style="margin-top: 60px;">Tipos de Sistemas de Controle de Acesso</h2>
-                <div class="applications-grid">
-                    <div class="application-item">
-                        <h3>Biométrico (Digital e Facial)</h3>
-                        <p>Tecnologia avançada para máxima segurança e praticidade no controle de pessoas e acesso a áreas restritas.</p>
+        <section style="background-color: var(--white);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Tecnologias de <span>Acesso</span></h2>
+                    <p>Trabalhamos com os melhores e mais modernos sistemas do mercado.</p>
+                </div>
+
+                <div class="grid-container">
+                    <div class="card-item">
+                        <img src="img/FOTO_d1af3cc2ad10ee1c0fc7bd0772f686e3.jpg" alt="Acesso Biométrico e Facial" class="card-img">
+                        <h3>Biométrico e Facial</h3>
+                        <p>Tecnologia avançada para máxima segurança e praticidade no controle de pessoas em áreas restritas.</p>
                     </div>
-                    <div class="application-item">
-                        <h3>Cartão de Proximidade (RFID)</h3>
-                        <p>Eficiência e gestão simplificada de fluxo, ideal para empresas e condomínios com alto volume de pessoas.</p>
+                    <div class="card-item">
+                        <img src="img/cartão.jpg" alt="Cartão de Proximidade" class="card-img">
+                        <h3>Cartão de Proximidade</h3>
+                        <p>Eficiência e gestão simplificada de fluxo, ideal para empresas e condomínios com alto volume de acessos.</p>
                     </div>
-                    <div class="application-item">
-                        <h3>Senha e QR Code</h3>
-                        <p>Soluções versáteis para controle de acesso básico e acesso temporário de visitantes ou eventos.</p>
-                    </div>
-                    <div class="application-item">
+                    <div class="card-item">
+                        <img src="https://images.unsplash.com/photo-1517036495682-1aeece882329?q=80&w=600&auto=format&fit=crop" alt="Controle de Veículos" class="card-img">
                         <h3>Controle de Veículos</h3>
-                        <p>Gerenciamento de entrada e saída de veículos em estacionamentos e portarias com agilidade e segurança.</p>
-                    </div>
-                </div>
-
-                <h2 style="margin-top: 60px;">Aplicações e Marcas que Atendemos</h2>
-                <div class="applications-grid">
-                    <div class="application-item">
-                        <h3>Para Empresas e Condomínios</h3>
-                        <p>Atendemos escritórios, academias, escolas, hospitais, condomínios residenciais e comerciais, adaptando soluções para cada necessidade.</p>
-                    </div>
-                    <div class="application-item">
-                        <h3>Nossas Marcas Parceiras</h3>
-                        <p>Trabalhamos com as melhores e mais confiáveis marcas do mercado, como **Control iD, Wolpac, Digicon, Hikvision e Maxtel**, garantindo soluções de ponta e compatibilidade.</p>
+                        <p>Gerenciamento inteligente de entrada e saída em estacionamentos e portarias com total segurança.</p>
                     </div>
                 </div>
             </div>
@@ -402,43 +573,99 @@
 
         <section id="sobre">
             <div class="container">
-                <h2>Sobre Nós</h2>
-                <p>Com experiência no mercado de segurança e controle de acesso, a Bellart nasceu da necessidade de oferecer serviços de alta qualidade com foco em Confiabilidade e Agilidade. Nossa equipe de Especialização é composta por técnicos altamente qualificados e treinados para entregar as melhores soluções em Controle de Acesso e Manutenção.</p>
-                <p>Nossa missão é garantir a Segurança, Controle e Organização do seu ambiente, proporcionando tranquilidade através de serviços de Prevenção e corretivos eficientes. Escolha a [Nome da Sua Empresa] para um parceiro que realmente entende suas necessidades de segurança.</p>
+                <div class="sobre-wrapper">
+                    <div class="sobre-img">
+                        <img src="img/manutenção.png" alt="Técnico realizando manutenção">
+                    </div>
+                    <div class="sobre-content">
+                        <h2 style="font-size: 2.5rem; color: var(--dark-bg); margin-bottom: 20px; font-weight: 900;">Sobre a <span style="color: var(--primary-color);">Bellart</span></h2>
+                        <p>Com anos de experiência no mercado de segurança e controle de acesso, a <strong>Bellart</strong> nasceu da necessidade de oferecer serviços de alta qualidade com focus absoluto em <strong>Confiabilidade e Agilidade</strong>.</p>
+                        <p>Nossa equipe é composta por técnicos altamente qualificados e treinados nas melhores marcas do mercado para entregar soluções definitivas em Controle de Acesso e Manutenção.</p>
+                        <p><strong>Nossa Missão:</strong> Garantir a segurança, controle e organização do seu ambiente, proporcionando tranquilidade através de serviços preventivos e corretivos impecáveis.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="clientes">
+        <section id="marcas" style="background-color: var(--white);">
             <div class="container">
-                <h2>Quem Confia em Nossos Serviços</h2>
-                
-                <p style="margin-top: 30px;">Faça como essas empresas e garanta a segurança e eficiência do seu controle de acesso.</p>
+                <div class="section-header">
+                    <h2>Marcas <span>Parceiras</span></h2>
+                    <p>Trabalhamos apenas com equipamentos líderes e confiáveis do mercado.</p>
+                </div>
+                <div class="logos-grid">
+                    <img src="img/Maxtel.png" alt="Maxtel">
+                    
+                    <img src="img/wolpac.png" alt="Wolpac">
+                    <img src="img/hik.png" alt="Hikvision">
+                    <img src="img/Digicon.png" alt="Digicon">
+                </div>
             </div>
         </section>
 
         <section id="contato">
             <div class="container">
-                <h2>Entre em Contato via WhatsApp</h2>
-                <div class="contact-form">
-                    <p style="text-align: center; margin-bottom: 20px;">	**<a href="https://wa.me/5511991350519" target="_blank" style="color: #ce5e08; text-decoration: none; font-weight: bold;">Fale Conosco pelo WhatsApp</a>** para um atendimento rápido!</p>
-                    
-                    </form>
+                <div class="section-header">
+                    <h2>Fale <span>Conosco</span></h2>
+                    <p>Solicite um orçamento ou agende uma visita técnica sem compromisso.</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Atendimento Rápido</h3>
+                        <p>Precisa de suporte imediato ou tem alguma dúvida sobre nossos projetos? Chame agora mesmo no WhatsApp.</p>
+                        
+                        <div class="info-item">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>(11) 99135-0519</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>contato@bellart.com.br</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Seg - Sex: 08:00 às 18:00</span>
+                        </div>
+
+                        <a href="https://wa.me/5511991350519" target="_blank" class="btn" style="margin-top: 30px; background-color: #25D366; border-color: #25D366; color: white;">
+                            <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Chamar no WhatsApp
+                        </a>
+                    </div>
+
+                    <div class="contact-form">
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="nome">Nome / Empresa</label>
+                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone / WhatsApp</label>
+                                <input type="tel" id="telefone" name="telefone" placeholder="(11) 90000-0000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mensagem">Como podemos ajudar?</label>
+                                <textarea id="mensagem" name="mensagem" placeholder="Descreva sua necessidade..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Enviar Mensagem</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <a href="https://wa.me/5511991350519" class="whatsapp-float" target="_blank">
-        &#x2709; </a>
+    <a href="https://wa.me/5511991350519" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Bellart. Todos os direitos reservados.</p>
+            <img src="img/logo.png" alt="Logo Bellart" class="footer-logo">
+            <p>&copy; 2025 <span>Bellart</span>. Todos os direitos reservados.</p>
             <p>Criado com foco em Segurança, Controle e Organização.</p>
         </div>
     </footer>
-	<a href="https://wa.me/5511991350519" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="40" height="40">
-</a>
+
 </body>
 </html>
